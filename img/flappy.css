@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Shrikhand', cursive;
+}
+
+#flappy {
+    position: relative;
+    border: 5px solid dodgerblue;
+    height: 700px;
+    width: 1200px;
+    margin: 15px;
+    background-color: deepskyblue;
+    overflow: hidden;
+}
+
