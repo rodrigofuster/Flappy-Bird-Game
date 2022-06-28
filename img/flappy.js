@@ -18,9 +18,6 @@ function Barreira(reversa = false) {
   this.setAltura = (altura) => (corpo.style.height = `${altura}px`);
 }
 
-/*const b = new Barreira(true) 
-b.setAltura(200) 
-document.querySelector(".flappy").appendChild(b.elemento)*/
 
 function ParDeBarreiras(altura, abertura, x) {
   this.elemento = novoElemento("div", "par-de-barreiras");
@@ -47,11 +44,6 @@ function ParDeBarreiras(altura, abertura, x) {
   this.setX(x);
 }
 
-//const b = new ParDeBarreiras(700, 200, 800)
-//document.querySelector('.flappy').appendChild(b.elemento)
-
-// posicionamento das barreiras
-
 function Barreiras(altura, largura, abertura, espaço, notificarPonto) {
   this.pares = [
     new ParDeBarreiras(altura, abertura, largura),
@@ -60,7 +52,7 @@ function Barreiras(altura, largura, abertura, espaço, notificarPonto) {
     new ParDeBarreiras(altura, abertura, largura + espaço * 3),
   ];
 
-  const deslocamento = 3;
+  const deslocamento = 3; // ajusta a velocidade das barreiras
   this.animar = () => {
     this.pares.forEach((par) => {
       par.setX(par.getX() - deslocamento);
