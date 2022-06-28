@@ -4,16 +4,25 @@
     color: deepskyblue;
 }
 
+body {
+    background: #bdf35f;
+}
+
 h1 {
     text-align: center;
+}
+
+img {
+    width: 40px;
+    height: 30px;
 }
 
 .flappy {
     position: relative;
     border: 5px solid dodgerblue;
     height: 700px;
-    width: 1200px;
-    margin: 15px;
+    width: 900px;
+    margin-left: 210px;
     background-color: deepskyblue;
     overflow: hidden;
 }
