@@ -79,6 +79,80 @@ function Barreiras(altura, largura, abertura, espaço, notificarPonto) {
   };
 }
 
-const barreiras = new Barreiras(700, 1200, 200, 400);
+// fazer o passaro voar 
+function Passaro(alturaJogo) {
+    let voando = false 
+
+    this.elemento = novoElemento('img', 'passaro')
+    this.elemento.src = "bird.png"
+
+    this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0])
+    this.setY = y => this.elemento.style.bottom = `${y}px`
+
+    window.onkeydown = e => voando = true
+    window.onkeyup = e => voando = false
+
+    this.animar = () => {
+        const novoY = this.getY() + (voando ? 8 : -5)
+        const alturaMaxima = alturaJogo - this.elemento.clientHeight
+
+        if(novoY <= 0) {
+            this.setY(0)
+        } else if (novoY >= alturaMaxima) {
+            this.setY(alturaMaxima)
+        } else {
+            this.setY(novoY)
+        }
+    }
+
+    this.setY(alturaJogo / 2)
+}
+
+
+/*const barreiras = new Barreiras(700, 1200, 200, 400);
+const passaro = new Passaro(700)
 const areaDoJogo = document.querySelector(".flappy");
+
+areaDoJogo.appendChild(passaro.elemento)
 barreiras.pares.forEach((par) => areaDoJogo.appendChild(par.elemento));
+setInterval(() => {
+    barreiras.animar()
+    passaro.animar()
+}, 20)*/
+
+function progresso() {
+    this.elemento = novoElemento('span', 'progresso')
+    this.atualizarPontos = pontos => {
+        this.elemento.innerHTML = pontos 
+    }
+    this.atualizarPontos(0)
+}
+
+/*const barreiras = new Barreiras(700, 1200, 200, 400);
+const passaro = new Passaro(700)
+const areaDoJogo = document.querySelector(".flappy");
+
+areaDoJogo.appendChild(passaro.elemento)
+areaDoJogo.appendChild(new progresso().elemento)
+barreiras.pares.forEach((par) => areaDoJogo.appendChild(par.elemento));
+setInterval(() => {
+    barreiras.animar()
+    passaro.animar()
+}, 20)*/
+
+
+function FlappyBird() {
+    let pontos = 0 
+    const areaDoJogo = document.querySelector('.flappy')
+    const altura = areaDoJogo.clientHeight
+    const largura = areaDoJogo.clientHeight 
+
+    const progresso = new Progresso()
+    const barreiras = new Barreiras(altura, largura, 200, 400,
+        () => progresso.atualizarPontos(++pontos))
+    const passaro = new Passaro(altura)
+
+    areaDoJogo.appendChild(progresso.elemento)
+    areaDoJogo.appendChild(passaro.elemento)
+    barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+}
