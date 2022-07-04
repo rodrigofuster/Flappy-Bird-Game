@@ -5,6 +5,9 @@
 ### :computer: Elaboração de um jogo com o objetivo de reforçar os fundamentos do DOM, integrando HTML, CSS e JavaScript.
 <hr>
 
+### Jogar :point_right: [FlappyBird]( https://rodrigofuster.github.io/Flappy-Bird-Game/)
+
+
  
 <img height="600em" width="700em" src="https://user-images.githubusercontent.com/87047818/176320504-045ec281-5c96-469f-862a-1fe44332892c.jpg"/>
 
